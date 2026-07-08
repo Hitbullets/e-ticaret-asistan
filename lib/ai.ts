@@ -15,6 +15,12 @@ const xai = createOpenAI({
   apiKey: process.env.XAI_API_KEY || '',
 });
 
+// OpenRouter: OpenAI-uyumlu, ücretsiz modeller (Qwen, Llama, vb.)
+const openrouter = createOpenAI({
+  baseURL: 'https://openrouter.ai/api/v1',
+  apiKey: process.env.OPENROUTER_API_KEY || '',
+});
+
 const ProductContentSchema = z.object({
   seoTitle: z.string().max(100).describe('SEO uyumlu ürün başlığı, maksimum 100 karakter, Trendyol kurallarına uygun'),
   descriptionHtml: z.string().describe('Zengin ürün açıklaması HTML formatında, en az 150 kelime, özellik listesi + fayda odaklı metin'),
@@ -82,12 +88,23 @@ async function generateWithGrok(input: ProductInput): Promise<ProductContent & {
   return { ...result.object, model: 'xai/grok-3' };
 }
 
-// Ana fonksiyon: Gemini → Groq → Grok fallback zinciri
+// 4. Yedek: OpenRouter Qwen 3 235B (ücretsiz: 20 RPM, 50/gün)
+async function generateWithOpenRouter(input: ProductInput): Promise<ProductContent & { model: string }> {
+  const result = await generateObject({
+    model: openrouter('qwen/qwen3-235b-a22b:free'),
+    schema: ProductContentSchema,
+    prompt: buildPrompt(input),
+  });
+  return { ...result.object, model: 'openrouter/qwen3-235b:free' };
+}
+
+// Ana fonksiyon: Gemini → Groq → Grok → OpenRouter fallback zinciri
 export async function generateProductContent(input: ProductInput): Promise<ProductContent> {
   const providers = [
     { name: 'Gemini', fn: generateWithGemini, envKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY },
     { name: 'Groq', fn: generateWithGroq, envKey: process.env.GROQ_API_KEY },
     { name: 'xAI Grok', fn: generateWithGrok, envKey: process.env.XAI_API_KEY },
+    { name: 'OpenRouter', fn: generateWithOpenRouter, envKey: process.env.OPENROUTER_API_KEY },
   ];
 
   for (const provider of providers) {
