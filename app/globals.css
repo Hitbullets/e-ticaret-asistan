@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 9999px;
+}
+
+:root {
+  color-scheme: dark;
+  /* Stitch Glass Waves — Editorial Growth Theme */
+  --background: #10141a;
+  --foreground: #dfe2eb;
+  --card: #1c2026;
+  --card-foreground: #dfe2eb;
+  --popover: #1c2026;
+  --popover-foreground: #dfe2eb;
+  --primary: #ffb4a9;
+  --primary-foreground: #690002;
+  --secondary: #dbc0c0;
+  --secondary-foreground: #3d2c2d;
+  --muted: #262a31;
+  --muted-foreground: #a88a86;
+  --accent: #ff6b5a;
+  --accent-foreground: #6d0002;
+  --destructive: #ffb4ab;
+  --border: #30363D;
+  --input: #30363D;
+  --ring: #ffb4a9;
+  --chart-1: #ffb4a9;
+  --chart-2: #54dcbc;
+  --chart-3: #ff6b5a;
+  --chart-4: #dbc0c0;
+  --chart-5: #a88a86;
+  --radius: 0.5rem;
+  --sidebar: #10141a;
+  --sidebar-foreground: #dfe2eb;
+  --sidebar-primary: #ffb4a9;
+  --sidebar-primary-foreground: #690002;
+  --sidebar-accent: #262a31;
+  --sidebar-accent-foreground: #dfe2eb;
+  --sidebar-border: #30363D;
+  --sidebar-ring: #ffb4a9;
+  /* Stitch Custom Tokens */
+  --editor-bg: #0D1117;
+  --editor-surface: #161B22;
+  --editor-border: #30363D;
+  --surface: #10141a;
+  --surface-dim: #10141a;
+  --surface-bright: #353940;
+  --surface-container: #1c2026;
+  --surface-container-low: #181c22;
+  --surface-container-high: #262a31;
+  --surface-container-highest: #31353c;
+  --tertiary: #54dcbc;
+  --tertiary-container: #00af91;
+  --outline: #a88a86;
+  --outline-variant: #59413e;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Stitch Animations */
+@layer utilities {
+  .transition-smooth {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hover-lift {
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.3), 0 4px 10px -6px rgb(0 0 0 / 0.2);
+  }
+  .glass {
+    backdrop-filter: blur(20px);
+    background: rgba(16, 20, 26, 0.8);
+  }
+  .highlight-coral {
+    background: rgba(255, 107, 90, 0.2);
+    border-radius: 0.125rem;
+    padding: 0 0.25rem;
+  }
+}

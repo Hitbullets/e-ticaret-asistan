@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SatışMetni - Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#410001",
+                      "on-secondary-fixed-variant": "#554243",
+                      "tertiary-fixed-dim": "#54dcbc",
+                      "error-container": "#93000a",
+                      "primary": "#ffb4a9",
+                      "tertiary-container": "#00af91",
+                      "tertiary": "#54dcbc",
+                      "surface-bright": "#353940",
+                      "secondary-fixed-dim": "#dbc0c0",
+                      "surface-container-high": "#262a31",
+                      "tertiary-fixed": "#74f9d7",
+                      "background": "#10141a",
+                      "inverse-on-surface": "#2d3137",
+                      "on-primary": "#690002",
+                      "inverse-primary": "#ae3025",
+                      "secondary": "#dbc0c0",
+                      "surface-container": "#1c2026",
+                      "on-primary-fixed-variant": "#8c1711",
+                      "primary-fixed": "#ffdad5",
+                      "surface-tint": "#ffb4a9",
+                      "error": "#ffb4ab",
+                      "inverse-surface": "#dfe2eb",
+                      "on-tertiary-fixed": "#002019",
+                      "on-secondary": "#3d2c2d",
+                      "on-secondary-fixed": "#261818",
+                      "primary-fixed-dim": "#ffb4a9",
+                      "on-primary-container": "#6d0002",
+                      "secondary-container": "#554243",
+                      "on-surface-variant": "#e0bfba",
+                      "surface-dim": "#10141a",
+                      "on-tertiary": "#00382d",
+                      "on-error": "#690005",
+                      "on-secondary-container": "#c9afaf",
+                      "on-error-container": "#ffdad6",
+                      "primary-container": "#ff6b5a",
+                      "surface-container-low": "#181c22",
+                      "on-surface": "#dfe2eb",
+                      "secondary-fixed": "#f8dcdc",
+                      "on-tertiary-fixed-variant": "#005142",
+                      "outline": "#a88a86",
+                      "on-background": "#dfe2eb",
+                      "surface-variant": "#31353c",
+                      "surface-container-highest": "#31353c",
+                      "surface": "#10141a",
+                      "outline-variant": "#59413e",
+                      "on-tertiary-container": "#003a2f",
+                      "surface-container-lowest": "#0a0e14"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-max": "1280px",
+                      "section-padding": "80px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-xl-mobile": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-xl": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "label-bold": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-xl-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-xl": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .marker-highlight {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        .marker-highlight::before {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: -2px;
+            right: -2px;
+            height: 40%;
+            background-color: theme('colors.primary-container');
+            opacity: 0.3;
+            z-index: -1;
+            transform: rotate(-1deg);
+            border-radius: 2px;
+        }
+        
+        .clip-path-anim {
+            clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+            animation: sweepIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes sweepIn {
+            to {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 transition-all duration-300">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
+<!-- Brand Logo -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-2xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">edit</span>
+<a class="font-display-xl-mobile md:font-display-xl text-headline-md font-bold text-on-surface hover:text-primary transition-colors" href="#">SatışMetni</a>
+</div>
+<!-- Mobile Nav Toggle (Hamburger) - Visible only on mobile -->
+<button aria-label="Open Menu" class="md:hidden text-on-surface hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Özellikler</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Çözümler</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Fiyatlandırma</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Hakkımızda</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-primary transition-all duration-300" href="#">Blog</a>
+</nav>
+<!-- Actions -->
+<div class="hidden md:flex items-center gap-4">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Giriş Yap</a>
+<a class="bg-primary-container text-white px-5 py-2.5 rounded-lg font-label-bold hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_15px_rgba(255,107,90,0.3)]" href="#">Kayıt Ol</a>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-28 pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto flex flex-col gap-12">
+<!-- Blog Header / Featured Area (Mobile Optimized) -->
+<section class="flex flex-col gap-6 items-start">
+<h1 class="font-display-xl-mobile text-display-xl-mobile text-on-surface">
+                İçerik Stratejinizi <br/>
+<span class="text-primary-container relative inline-block clip-path-anim">
+                    Yeniden Tanımlayın
+                    <svg class="absolute -bottom-2 left-0 w-full h-3 text-primary-container" preserveaspectratio="none" viewbox="0 0 100 10">
+<path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                E-ticaret başarınızı artıracak en güncel taktikler, yapay zeka destekli metin yazarlığı ipuçları ve dönüşüm odaklı stratejiler.
+            </p>
+</section>
+<!-- Featured Article Card (Single Column Stack for Mobile) -->
+<article class="flex flex-col md:flex-row bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 shadow-lg group hover:shadow-xl transition-shadow duration-300 relative">
+<!-- Badge -->
+<div class="absolute top-4 right-4 bg-primary-container text-white font-label-bold text-label-bold px-3 py-1 rounded-full shadow-md z-10 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+                Popüler
+            </div>
+<!-- Image Area (Dark Context) -->
+<div class="w-full md:w-1/2 h-64 md:h-auto bg-surface relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A close-up, high-contrast flat lay of a modern professional workspace featuring a sleek minimalist keyboard, a digital tablet with wireframe sketches, and a steaming cup of dark coffee on a charcoal grey desk surface. The lighting is dramatic, casting distinct shadows that emphasize the high-end editorial and transformative AI-driven design aesthetic. Subtle coral color accents are integrated via a high-quality pen and a notebook bookmark." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdznpeoIE9fdZ_Fd0Ej4w_llEYJ5RHXTHfIgGi2G5SBsSk1vZaL_lzTKwbaj2b8hplJe-ovlVoofdhKAaT8udwpD9ov9m8c8_GgC9pnhocaJtlWJxDbgbasZK-KjMnzxwhGqkcHEe_7xIc0HXHGEvooBcb7po95kR1gseyBA-wkMeIbblcwilpQeVlgW60kGxeJoi2XTIhN2OHL8nxIfshziLf9iWBcPSUN0mYNEqJxNIG0WuTlg4MO-Ie-vhjq0mGBNRZ3WWJ_g0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60"></div>
+</div>
+<!-- Content Area (Light / Refined Context) -->
+<div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between bg-surface-bright/50">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 text-on-surface-variant font-caption text-caption">
+<span>E-Ticaret Stratejisi</span>
+<span class="w-1 h-1 bg-outline rounded-full"></span>
+<span>5 Dk Okuma</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight group-hover:text-primary transition-colors">
+                        Yapay Zeka ile Ürün Açıklamalarınızı Nasıl <span class="marker-highlight">Kusursuzlaştırırsınız?</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                        Geleneksel ürün tanımlarını geride bırakın. Yapay zekanın analitik gücünü kullanarak müşterilerinizi satın almaya ikna edecek, SEO uyumlu ve duygu odaklı metinleri saniyeler içinde nasıl üreteceğinizi adım adım inceliyoruz.
+                    </p>
+</div>
+<div class="mt-6 flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container font-bold text-sm">
+                            SM
+                        </div>
+<span class="font-caption text-caption text-on-surface">SatışMetni Editör Ekibi</span>
+</div>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Article List (Single Column Stack) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Standard Card 1 -->
+<article class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 hover:border-primary/50 transition-colors duration-300 flex flex-col group">
+<div class="h-48 relative overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300" data-alt="A minimalist, modern abstract digital illustration representing SEO and data analytics. The image features sleek geometric shapes, floating glowing text snippets, and subtle upward-trending graphs over a deep, dark grey background. Highlights of vibrant coral red create a striking contrast, aligning with a premium, high-conversion SaaS visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyLjiOxiLSjVT4oTOdkZc5CUYKETF8TF4EC91HPBk_qEqkKBS7cYECistSF88Oc2dGTMsYKEDmyMzG0_RcWkj5YVNybeFf_Wpw3dh6Jvah0hE9cjWBWpMQzfZ8-UUSzL4fNWg0hurhO7IpzmkpfG3gbEbALrDyBXxYjPBZakugaFAjmZlnZTXKYk70aLPknD079xxVrXNYMUeGE-rKl_OieGNCue6v-pIZIQ9ANxeqchBB0u__TkO_GLcgH88qyOQeDHdUdMI-9mQ"/>
+</div>
+<div class="p-5 flex flex-col flex-grow gap-3">
+<span class="text-primary font-caption text-caption uppercase tracking-wider">SEO İpuçları</span>
+<h3 class="font-headline-md text-[22px] leading-snug text-on-surface group-hover:text-primary-container transition-colors">Arama Motorlarında Üst Sıralara Çıkmanın Sırları</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm flex-grow">Organik trafiğinizi artırmak için yapay zeka destekli anahtar kelime optimizasyonu teknikleri.</p>
+<div class="flex items-center gap-1 text-primary text-sm font-label-bold mt-2">
+                        Okumaya Devam Et <span class="material-symbols-outlined text-[16px]">trending_flat</span>
+</div>
+</div>
+</article>
+<!-- Standard Card 2 -->
+<article class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 hover:border-primary/50 transition-colors duration-300 flex flex-col group">
+<div class="h-48 relative overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300" data-alt="An elegant, modern mobile smartphone displaying a sophisticated dashboard interface with high-contrast dark mode design. The phone is resting on a clean, dark slate table alongside a stylish matte black fountain pen. The screen highlights a conversion rate metric glowing in bright coral, representing transformative AI-driven results in a contemporary editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5rQG9IPT8c3YJU6qgQ1ytc28tAGt8xq9paY93OfeHRrE9hy0TesaGtzj27fbIhtCD28Upq2hg7CQKtDlpRU5uKxvbovqB50nEjz7phqtqQHVVDK5hYleFYB0uJifBIvem6yoJvSqoQxbfRLhavF7_RSoqHHRZFS1h3C-Rg8Fi4-zD4U6n7RK-yFJL913v2RGGSwWv0Qu56fYjMOnQ7Ol6H6chI_31w8h-wgdU1sjRWKA040DdKra2ib6RTM3dqxTkkHClbDUoSd0"/>
+</div>
+<div class="p-5 flex flex-col flex-grow gap-3">
+<span class="text-primary font-caption text-caption uppercase tracking-wider">Dönüşüm Oranı</span>
+<h3 class="font-headline-md text-[22px] leading-snug text-on-surface group-hover:text-primary-container transition-colors">Müşteri Psikolojisi ve Dönüşüm Metinleri</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm flex-grow">Ziyaretçileri alıcılara dönüştüren, ikna edici ve duygu odaklı satış kopyaları hazırlama rehberi.</p>
+<div class="flex items-center gap-1 text-primary text-sm font-label-bold mt-2">
+                        Okumaya Devam Et <span class="material-symbols-outlined text-[16px]">trending_flat</span>
+</div>
+</div>
+</article>
+<!-- Standard Card 3 -->
+<article class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 hover:border-primary/50 transition-colors duration-300 flex flex-col group md:col-span-2 lg:col-span-1">
+<div class="h-48 relative overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300" data-alt="A stylized, editorial-quality shot of a glowing AI neural network mesh superimposed over a classic vintage typewriter. The scene bridges traditional craftsmanship with cutting-edge artificial intelligence, bathed in moody dark tones with sharp, piercing coral-colored light accents highlighting the intersection of the machine and digital nodes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnRkuGPbkU3-u5_1DHbBXioSvZCF_jfQnygfnHjAl0rqxBhE1hOEnLtFYEZSzwilf66dFoLZFokv8Y7Ap3RGQJ6DZWSgcWfg2spkY3B5Hjp4TSug4Z38OrrOSur5YrSXTQ5Mc9QZBEliq-rN8OxmEjC6e2-CzlaaLlkjLnzdvxoVvsPTHmFcQQZ8KprtjgV-SniDXPXGX6QUtc6gnNIKqnDtuBnHCHJ8x-jCAvvyzJIyw6VFlWb1dWkouNkB-XvYlzn46I_yidM7Y"/>
+</div>
+<div class="p-5 flex flex-col flex-grow gap-3">
+<span class="text-primary font-caption text-caption uppercase tracking-wider">Yapay Zeka</span>
+<h3 class="font-headline-md text-[22px] leading-snug text-on-surface group-hover:text-primary-container transition-colors">İçerik Üretiminin Geleceği: Generative AI</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm flex-grow">SatışMetni'nin arkasındaki teknolojiyi ve içerik üretim süreçlerini nasıl baştan yarattığını keşfedin.</p>
+<div class="flex items-center gap-1 text-primary text-sm font-label-bold mt-2">
+                        Okumaya Devam Et <span class="material-symbols-outlined text-[16px]">trending_flat</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More Button -->
+<div class="flex justify-center mt-4">
+<button class="border border-outline text-on-surface px-6 py-2.5 rounded-lg font-label-bold hover:bg-surface-bright hover:border-primary transition-all duration-300 flex items-center gap-2">
+                Daha Fazla Yükle
+                <span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-background border-t border-surface-container-low mt-auto w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto py-section-padding px-margin-mobile md:px-gutter">
+<!-- Brand Info -->
+<div class="flex flex-col gap-4 col-span-1 md:col-span-1">
+<div class="font-display-xl text-headline-md font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-weight="fill">edit</span>
+                    SatışMetni
+                </div>
+<p class="font-caption text-caption text-on-surface-variant">
+                    Yapay zeka ile satış odaklı metinlerinizi saniyeler içinde oluşturun, dönüşümlerinizi artırın.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-bold text-on-surface mb-2">Ürünler</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Özellikler</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Fiyatlandırma</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Entegrasyonlar</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-bold text-on-surface mb-2">Çözümler</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">E-Ticaret İçin</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Ajanslar İçin</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Markalar İçin</a>
+</div>
+<!-- Links Column 3 & Newsletter -->
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-on-surface">Kaynaklar &amp; Kurumsal</h4>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Blog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Yardım Merkezi</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">İletişim</a>
+</div>
+<div class="mt-4">
+<p class="font-caption text-caption text-on-surface-variant mb-2">Bültene Kayıt Olun</p>
+<div class="flex items-center gap-2">
+<input class="w-full bg-surface-container border border-outline-variant rounded-md px-3 py-2 text-sm text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="E-posta adresi" type="email"/>
+<button aria-label="Subscribe" class="bg-primary-container text-white px-3 py-2 rounded-md hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Copyright -->
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-caption text-caption text-on-surface-variant">© 2024 SatışMetni AI. Tüm hakları saklıdır.</span>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<a class="hover:text-primary transition-colors font-caption text-caption" href="#">Gizlilik Politikası</a>
+<a class="hover:text-primary transition-colors font-caption text-caption" href="#">Kullanım Şartları</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

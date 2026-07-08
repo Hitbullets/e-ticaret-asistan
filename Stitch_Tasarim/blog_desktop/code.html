@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SatışMetni - Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#410001",
+                        "on-secondary-fixed-variant": "#554243",
+                        "tertiary-fixed-dim": "#54dcbc",
+                        "error-container": "#93000a",
+                        "primary": "#ffb4a9",
+                        "tertiary-container": "#00af91",
+                        "tertiary": "#54dcbc",
+                        "surface-bright": "#353940",
+                        "secondary-fixed-dim": "#dbc0c0",
+                        "surface-container-high": "#262a31",
+                        "tertiary-fixed": "#74f9d7",
+                        "background": "#10141a",
+                        "inverse-on-surface": "#2d3137",
+                        "on-primary": "#690002",
+                        "inverse-primary": "#ae3025",
+                        "secondary": "#dbc0c0",
+                        "surface-container": "#1c2026",
+                        "on-primary-fixed-variant": "#8c1711",
+                        "primary-fixed": "#ffdad5",
+                        "surface-tint": "#ffb4a9",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#dfe2eb",
+                        "on-tertiary-fixed": "#002019",
+                        "on-secondary": "#3d2c2d",
+                        "on-secondary-fixed": "#261818",
+                        "primary-fixed-dim": "#ffb4a9",
+                        "on-primary-container": "#6d0002",
+                        "secondary-container": "#554243",
+                        "on-surface-variant": "#e0bfba",
+                        "surface-dim": "#10141a",
+                        "on-tertiary": "#00382d",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#c9afaf",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#ff6b5a",
+                        "surface-container-low": "#181c22",
+                        "on-surface": "#dfe2eb",
+                        "secondary-fixed": "#f8dcdc",
+                        "on-tertiary-fixed-variant": "#005142",
+                        "outline": "#a88a86",
+                        "on-background": "#dfe2eb",
+                        "surface-variant": "#31353c",
+                        "surface-container-highest": "#31353c",
+                        "surface": "#10141a",
+                        "outline-variant": "#59413e",
+                        "on-tertiary-container": "#003a2f",
+                        "surface-container-lowest": "#0a0e14"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "section-padding": "80px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .marker-highlight {
+            position: relative;
+            display: inline-block;
+        }
+        .marker-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 107, 90, 0.3);
+            z-index: -1;
+            transform: skewX(-15deg);
+        }
+        .draw-in {
+            clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+            animation: drawLine 1s ease forwards;
+        }
+        @keyframes drawLine {
+            to {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">edit</span>
+<span class="font-display-xl text-headline-md font-bold text-on-surface">SatışMetni</span>
+</div>
+<div class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Özellikler</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Çözümler</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Fiyatlandırma</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Hakkımızda</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="#">Blog</a>
+</div>
+<div class="hidden md:flex gap-4 items-center">
+<button class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors">Giriş Yap</button>
+<button class="bg-primary-container text-white px-6 py-2 rounded-md font-label-bold hover:scale-105 hover:brightness-110 transition-all">Kayıt Ol</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full">
+<!-- Blog Header -->
+<header class="text-center mb-16">
+<h1 class="font-display-xl text-display-xl mb-6">SatışMetni <span class="marker-highlight draw-in">Editör Masası</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                E-ticaret dönüşümlerinizi artıracak ipuçları, yapay zeka destekli içerik stratejileri ve başarı hikayeleri.
+            </p>
+</header>
+<!-- Featured Article (Bento Style) -->
+<section class="mb-24">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-surface-container-high rounded-xl overflow-hidden border border-surface-variant">
+<div class="md:col-span-7 h-64 md:h-auto bg-surface relative" data-alt="A high-contrast, editorial flat lay of a modern workspace on a dark grey textured desk. Features a sleek metallic laptop, glowing red neon accents, handwritten notes with bright coral marker highlights, and a minimalist coffee cup. Cinematic lighting emphasizing the transformation from raw data to polished content." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6JWBKve2v1wRZwO__F9Y-yNro61AkhIOaIF7Lyyzd15fNRsLh_eJLlA0hD5IXu2pehFPrkNbHicROt7kyZ-SLgyy7N_YQiCJSCFf5nzS0tEaIu9KHnPaIj9_9b0qV6agDAvl26uVhxFVGFw40-oMQbO-lceDRDGPj2nyAqALgfANp54Ii8VhPy0yMHd4x6QCnlOINhjr82-faTtE_t46DiPyvqCH6KEAvYWKBuqtMGxLqEVebdiDndS4t6SMBatIfxkD6ucJb7KM')">
+<!-- Image Placeholder -->
+</div>
+<div class="md:col-span-5 p-8 flex flex-col justify-center">
+<span class="text-primary-container font-label-bold mb-4 uppercase tracking-wider text-sm">Öne Çıkan</span>
+<h2 class="font-headline-lg text-headline-md mb-4 text-on-surface">Ürün Açıklamalarında Yapay Zeka: Dönüşüm Oranlarını %40 Nasıl Artırdık?</h2>
+<p class="font-body-md text-on-surface-variant mb-6">Geleneksel metin yazarlığı ile yapay zeka destekli içerik üretiminin karşılaştırmalı analizi ve gerçek dünya sonuçları.</p>
+<a class="text-primary hover:text-primary-fixed transition-colors font-label-bold inline-flex items-center gap-2 w-max" href="#">
+                        Devamını Oku
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Article Grid -->
+<section>
+<h3 class="font-headline-md text-headline-md mb-8 border-b border-surface-variant pb-4">Son Yazılar</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Article Card 1 -->
+<article class="group cursor-pointer">
+<div class="h-48 bg-surface-container-highest rounded-lg mb-4 overflow-hidden relative" data-alt="A stylized digital illustration of a magnifying glass analyzing glowing data points on a dark background. The data points shift from chaotic blue to organized coral red, symbolizing optimization. High-end SaaS aesthetic with subtle glassmorphism effects." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCux6wRHDq_wDTVg4D6bSYQEAYrIv7w_2y3024EQLlFR7Rxs0c1RQ5064LoVAmBDXt1VS5HIWQYMTqeCWW7NqIcBTPw9vQ54GxcbOjxIZ256aU5AiudlA3rAy49L_jShYufn-uwxew1gyQTnXy1yVbiDBtbTkr_xcL4EppPcW-XMMSeXVRkZnVXxUo3gPWeAFJZ8OLH4UeTvdiOEMNYxbUsdEh0hw2WB3T8xKSw85NnXpdMEZ3nzxV39Jmw1Q5HpOJpAAbghAjIbRY')">
+</div>
+<div class="flex gap-2 mb-3">
+<span class="bg-surface-variant text-on-surface-variant text-xs px-2 py-1 rounded font-label-bold">SEO</span>
+<span class="bg-surface-variant text-on-surface-variant text-xs px-2 py-1 rounded font-label-bold">İpuçları</span>
+</div>
+<h4 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">E-ticaret Siteleri İçin 2024 SEO Trendleri</h4>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Arama motoru algoritmalarındaki son değişiklikler ve ürün sayfalarınızı optimize etmenin yolları.</p>
+</article>
+<!-- Article Card 2 -->
+<article class="group cursor-pointer">
+<div class="h-48 bg-surface-container-highest rounded-lg mb-4 overflow-hidden relative" data-alt="Abstract representation of A/B testing showing two divergent paths glowing on a dark grid floor. One path is cool blue, the other is vibrant coral red leading to a bright burst of light, illustrating successful conversion. Modern, tech-focused editorial style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4p21e1uVuvkX_LMLjUUG4uiwJ6PGg498Z3iQ1oeC2c5WbavtRvzIQ40r7obDUn8GNGY-2tuzQedVkrPYH1xHEocGuZLTF_Y31OlNtHKO9dJr_63nwuASL4A6NUkDqg3OgwZyq9-l-Y_eIaIRD71Dj_BpzjeM89ivLcyGcWcngwV_X4zVDwYZ4KszsRXOCxbmhERrag3jJbAer-MuWhzWh4JPCRvvF0fCYn0fVzSNG_8buScUrwuXSgRO_ImUZli-sJONS4KLz_58')">
+</div>
+<div class="flex gap-2 mb-3">
+<span class="bg-surface-variant text-on-surface-variant text-xs px-2 py-1 rounded font-label-bold">Strateji</span>
+</div>
+<h4 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">A/B Testleri ile Mükemmel Başlığı Bulmak</h4>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Farklı başlık yapılarını test ederek hangi tonun hedef kitlenizle daha iyi yankılandığını keşfedin.</p>
+</article>
+<!-- Article Card 3 -->
+<article class="group cursor-pointer">
+<div class="h-48 bg-surface-container-highest rounded-lg mb-4 overflow-hidden relative" data-alt="A close-up shot of hands interacting with a glowing digital interface hovering above a desk. The interface displays charts showing upward growth trends in coral. Dark moody setting with cinematic rim lighting, conveying professional success and AI power." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnizTlyl32i66XNya908Naodikx9qs2RkoHY__14fJX6YAaMt-cj5_GAsAvQCyxCSbdUo-_o_9WHtJk9SeMEf534q6NqKw5ouZ2NOmpxMxzugCxAxPvnLSMZU3x0ZbLjCih2pfrMelWYNxvraU2y4Q3993BsfF1yKITU8Uomw4iTx9KRuj5yN9n6RurcJ3p9NLOwf2afwUTSWMF41navb7DfQpJYJnlEN9YAyhBX3_dkpb1DJZMpk0PnqoY02HYFD0I38FLU35TSs')">
+</div>
+<div class="flex gap-2 mb-3">
+<span class="bg-surface-variant text-on-surface-variant text-xs px-2 py-1 rounded font-label-bold">Başarı Hikayesi</span>
+</div>
+<h4 class="font-headline-md text-xl mb-2 text-on-surface group-hover:text-primary transition-colors">Vaka İncelemesi: Organik Trafikte 3 Kat Artış</h4>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">SatışMetni kullanarak sadece 3 ayda ürün görünürlüğünü nasıl maksimize ettiklerini anlatan müşteri deneyimi.</p>
+</article>
+</div>
+<div class="mt-12 text-center">
+<button class="border border-outline text-on-surface px-6 py-2 rounded-md font-label-bold hover:bg-surface-variant transition-colors">Daha Fazla Yükle</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-background border-t border-surface-container-low">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto py-section-padding px-margin-mobile md:px-gutter">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-container">edit</span>
+<span class="font-display-xl text-headline-md font-bold text-on-surface">SatışMetni</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">© 2024 SatışMetni AI. Tüm hakları saklıdır.</p>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-bold text-on-surface mb-2">Ürünler</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Özellikler</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Fiyatlandırma</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-bold text-on-surface mb-2">Kaynaklar</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Blog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Rehberler</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-bold text-on-surface mb-2">Kurumsal</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Hakkımızda</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">İletişim</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple animation trigger for drawing lines
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const highlights = document.querySelectorAll('.marker-highlight');
+                highlights.forEach(h => h.classList.add('draw-in'));
+            }, 300);
+        });
+    </script>
+</body></html>

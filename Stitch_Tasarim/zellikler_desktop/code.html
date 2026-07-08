@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SatışMetni - Özellikler</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#410001",
+                        "on-secondary-fixed-variant": "#554243",
+                        "tertiary-fixed-dim": "#54dcbc",
+                        "error-container": "#93000a",
+                        "primary": "#ffb4a9",
+                        "tertiary-container": "#00af91",
+                        "tertiary": "#54dcbc",
+                        "surface-bright": "#353940",
+                        "secondary-fixed-dim": "#dbc0c0",
+                        "surface-container-high": "#262a31",
+                        "tertiary-fixed": "#74f9d7",
+                        "background": "#10141a",
+                        "inverse-on-surface": "#2d3137",
+                        "on-primary": "#690002",
+                        "inverse-primary": "#ae3025",
+                        "secondary": "#dbc0c0",
+                        "surface-container": "#1c2026",
+                        "on-primary-fixed-variant": "#8c1711",
+                        "primary-fixed": "#ffdad5",
+                        "surface-tint": "#ffb4a9",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#dfe2eb",
+                        "on-tertiary-fixed": "#002019",
+                        "on-secondary": "#3d2c2d",
+                        "on-secondary-fixed": "#261818",
+                        "primary-fixed-dim": "#ffb4a9",
+                        "on-primary-container": "#6d0002",
+                        "secondary-container": "#554243",
+                        "on-surface-variant": "#e0bfba",
+                        "surface-dim": "#10141a",
+                        "on-tertiary": "#00382d",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#c9afaf",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#ff6b5a",
+                        "surface-container-low": "#181c22",
+                        "on-surface": "#dfe2eb",
+                        "secondary-fixed": "#f8dcdc",
+                        "on-tertiary-fixed-variant": "#005142",
+                        "outline": "#a88a86",
+                        "on-background": "#dfe2eb",
+                        "surface-variant": "#31353c",
+                        "surface-container-highest": "#31353c",
+                        "surface": "#10141a",
+                        "outline-variant": "#59413e",
+                        "on-tertiary-container": "#003a2f",
+                        "surface-container-lowest": "#0a0e14"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "section-padding": "80px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #0D1117; color: #dfe2eb; }
+        .highlight-draw {
+            position: relative;
+            display: inline-block;
+        }
+        .highlight-draw::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background-color: #ff6b5a;
+            opacity: 0.3;
+            z-index: -1;
+            transform-origin: left;
+            animation: drawHighlight 1s ease-out forwards;
+        }
+        @keyframes drawHighlight {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+        .markup-arrow {
+            position: absolute;
+            color: #ff6b5a;
+            font-family: 'Shadows Into Light', cursive; /* Simulated hand-drawn */
+        }
+        .card-shadow { box-shadow: 0px 10px 30px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body class="bg-background antialiased selection:bg-primary-container selection:text-white">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20 flat no shadows">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-weight="fill" style="font-variation-settings: 'FILL' 1;">edit</span>
+<span class="font-display-xl text-headline-md font-bold text-on-surface">SatışMetni</span>
+</div>
+<div class="hidden md:flex gap-8">
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Özellikler</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 transition-transform duration-200" href="#">Çözümler</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 transition-transform duration-200" href="#">Fiyatlandırma</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 transition-transform duration-200" href="#">Hakkımızda</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 transition-transform duration-200" href="#">Blog</a>
+</div>
+<div class="hidden md:flex gap-4 items-center">
+<a class="font-label-bold text-on-surface-variant hover:text-on-surface transition-colors" href="#">Giriş Yap</a>
+<a class="bg-primary-container text-white px-6 py-2 rounded font-label-bold hover:brightness-110 active:scale-95 transition-all" href="#">Kayıt Ol</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-32 pb-section-padding max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<!-- Header Section -->
+<div class="text-center mb-20 relative">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-6 max-w-4xl mx-auto">
+                Sıradan Ürün Bilgisini <br/>
+<span class="relative inline-block">
+                    Satış Odaklı
+                    <svg class="absolute -bottom-2 left-0 w-full h-4 text-primary-container" preserveaspectratio="none" viewbox="0 0 100 10">
+<path class="animate-[draw_1s_ease-out_forwards]" d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" stroke-width="2" style="stroke-dasharray: 100; stroke-dashoffset: 100;"></path>
+</svg>
+</span> 
+                İçeriğe Dönüştürün
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Yapay zeka editörümüz, teknik detayları alıp müşterilerinizi harekete geçiren, <span class="highlight-draw">SEO</span> uyumlu ve yüksek <span class="highlight-draw">dönüşüm</span> odaklı metinlere dönüştürür.
+            </p>
+</div>
+<!-- Features Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+<!-- Feature 1: SEO Başlık Sihirbazı -->
+<div class="bg-surface-container-high rounded-xl p-8 border border-outline-variant/30 flex flex-col justify-between group">
+<div class="mb-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">SEO Başlık Sihirbazı</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Arama motorlarında üst sıralara çıkmak için optimize edilmiş, tıklama garantili başlıklar üretin.</p>
+</div>
+<!-- Mini Split Card -->
+<div class="flex flex-col md:flex-row rounded-lg overflow-hidden border border-outline-variant/50">
+<div class="bg-[#161B22] p-4 flex-1">
+<span class="text-xs text-on-surface-variant uppercase tracking-wider mb-2 block">Kamera Girdi</span>
+<p class="text-sm font-mono text-on-surface/80">DSLR Kamera, Siyah, 24MP, Lens Dahil</p>
+</div>
+<div class="bg-white p-4 flex-1 card-shadow relative">
+<span class="text-xs text-slate-500 uppercase tracking-wider mb-2 block">SEO Uyumlu Başlık Çıktı</span>
+<p class="text-sm text-slate-900 font-medium">
+<span class="bg-primary-container/20 px-1 rounded">Profesyonel</span> Siyah DSLR Kamera - 24MP Çözünürlük &amp; Lens Seti
+                        </p>
+<!-- Markup Arrow -->
+<div class="absolute -left-6 top-1/2 -translate-y-1/2 text-primary-container hidden md:block">
+<svg fill="none" height="20" viewbox="0 0 40 20" width="40" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 10C10 5 30 5 38 10M38 10L30 2M38 10L30 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Feature 2: İkna Edici Açıklamalar -->
+<div class="bg-surface-container-high rounded-xl p-8 border border-outline-variant/30 flex flex-col justify-between">
+<div class="mb-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">İkna Edici Açıklamalar</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sadece özellikleri sıralamayın, faydaları satın. Sıkıcı metinleri ikna edici hikayelere dönüştürün.</p>
+</div>
+<div class="bg-[#161B22] p-6 rounded-lg border border-outline-variant/50 font-body-md text-sm text-on-surface/80 relative">
+<p class="line-through opacity-50 mb-2">Özellik: 4000mAh batarya kapasitesi.</p>
+<p class="text-white font-medium">
+<span class="text-primary-container mr-2">Fayda:</span> 
+                        Tüm gün süren maceranızda <span class="bg-primary-container/20 px-1 rounded text-primary">şarj derdini unutun.</span> 4000mAh gücüyle her anınızı yakalayın.
+                    </p>
+<!-- Marker Highlight -->
+<div class="absolute right-4 top-4 transform rotate-12 bg-primary-container text-white text-xs font-bold px-2 py-1 rounded shadow-lg">
+                        Dönüşüm Odaklı!
+                    </div>
+</div>
+</div>
+<!-- Feature 3: Sosyal Medya Hazırlığı -->
+<div class="bg-surface-container-high rounded-xl p-8 border border-outline-variant/30 flex flex-col justify-between">
+<div class="mb-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Sosyal Medya Hazırlığı</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Instagram ve TikTok için dikkat çekici, emoji destekli ve hashtag optimize içerikler.</p>
+</div>
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 flex items-center justify-center p-[2px]">
+<div class="w-full h-full bg-[#161B22] rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl">photo_camera</span>
+</div>
+</div>
+<div class="bg-white p-3 rounded-lg text-slate-800 text-sm max-w-[200px] shadow-sm relative">
+                        Yeni koleksiyon geldi! ✨ Sınırları zorlamaya hazır mısın? 🚀 #Yenilik
+                        <div class="absolute -bottom-2 -left-2 text-xl">😍</div>
+</div>
+</div>
+</div>
+<!-- Feature 4: Toplu İçerik Üretimi -->
+<div class="bg-surface-container-high rounded-xl p-8 border border-outline-variant/30 flex flex-col justify-between items-center text-center">
+<div class="mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Toplu İçerik Üretimi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Binlerce ürünü saniyeler içinde güncelleyin. <span class="highlight-draw">Hız</span> ve verimlilikte sınır tanımayın.</p>
+</div>
+<div class="relative w-full h-32 mt-4">
+<div class="absolute left-1/2 -translate-x-1/2 top-0 w-48 bg-[#161B22] border border-outline-variant/30 rounded p-2 text-xs text-on-surface/50 shadow-lg transform -rotate-6 z-10">Ürün_Data_1.csv</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-4 w-48 bg-[#161B22] border border-outline-variant/30 rounded p-2 text-xs text-on-surface/50 shadow-lg transform rotate-3 z-20">Ürün_Data_2.csv</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-8 w-48 bg-white border border-slate-200 rounded p-2 text-xs text-slate-800 shadow-xl z-30 font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                        500+ Ürün Optimize Edildi
+                    </div>
+</div>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="border-t border-outline-variant/30 pt-12 flex flex-col md:flex-row justify-around items-center gap-8">
+<div class="text-center">
+<div class="font-display-xl text-headline-lg text-on-surface font-bold counter" data-target="250">0</div>
+<div class="text-on-surface-variant text-sm uppercase tracking-widest mt-1">Milyon+ Üretilen Kelime</div>
+</div>
+<div class="text-center">
+<div class="font-display-xl text-headline-lg text-primary-container font-bold counter" data-target="34">0</div>
+<div class="text-on-surface-variant text-sm uppercase tracking-widest mt-1">% Dönüşüm Artışı</div>
+</div>
+<div class="text-center">
+<div class="font-display-xl text-headline-lg text-on-surface font-bold counter" data-target="10">0</div>
+<div class="text-on-surface-variant text-sm uppercase tracking-widest mt-1">Kat Daha Hızlı</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-background border-t bg-surface-container-low flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto py-section-padding px-margin-mobile md:px-gutter">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-container">edit</span>
+<span class="font-display-xl text-headline-md font-bold text-on-surface">SatışMetni</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">© 2024 SatışMetni AI. Tüm hakları saklıdır.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Ürünler</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Çözümler</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Kaynaklar</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Kurumsal</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple counter animation
+        const counters = document.querySelectorAll('.counter');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    let count = 0;
+                    const increment = target / 50; // Adjust speed
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < target) {
+                            entry.target.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            entry.target.innerText = target + (target > 100 ? 'M' : (target == 34 ? '%' : 'x'));
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    </script>
+</body></html>

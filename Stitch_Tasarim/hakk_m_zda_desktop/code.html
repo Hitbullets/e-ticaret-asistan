@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SatışMetni - Hakkımızda</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#410001",
+                      "on-secondary-fixed-variant": "#554243",
+                      "tertiary-fixed-dim": "#54dcbc",
+                      "error-container": "#93000a",
+                      "primary": "#ffb4a9",
+                      "tertiary-container": "#00af91",
+                      "tertiary": "#54dcbc",
+                      "surface-bright": "#353940",
+                      "secondary-fixed-dim": "#dbc0c0",
+                      "surface-container-high": "#262a31",
+                      "tertiary-fixed": "#74f9d7",
+                      "background": "#10141a",
+                      "inverse-on-surface": "#2d3137",
+                      "on-primary": "#690002",
+                      "inverse-primary": "#ae3025",
+                      "secondary": "#dbc0c0",
+                      "surface-container": "#1c2026",
+                      "on-primary-fixed-variant": "#8c1711",
+                      "primary-fixed": "#ffdad5",
+                      "surface-tint": "#ffb4a9",
+                      "error": "#ffb4ab",
+                      "inverse-surface": "#dfe2eb",
+                      "on-tertiary-fixed": "#002019",
+                      "on-secondary": "#3d2c2d",
+                      "on-secondary-fixed": "#261818",
+                      "primary-fixed-dim": "#ffb4a9",
+                      "on-primary-container": "#6d0002",
+                      "secondary-container": "#554243",
+                      "on-surface-variant": "#e0bfba",
+                      "surface-dim": "#10141a",
+                      "on-tertiary": "#00382d",
+                      "on-error": "#690005",
+                      "on-secondary-container": "#c9afaf",
+                      "on-error-container": "#ffdad6",
+                      "primary-container": "#ff6b5a",
+                      "surface-container-low": "#181c22",
+                      "on-surface": "#dfe2eb",
+                      "secondary-fixed": "#f8dcdc",
+                      "on-tertiary-fixed-variant": "#005142",
+                      "outline": "#a88a86",
+                      "on-background": "#dfe2eb",
+                      "surface-variant": "#31353c",
+                      "surface-container-highest": "#31353c",
+                      "surface": "#10141a",
+                      "outline-variant": "#59413e",
+                      "on-tertiary-container": "#003a2f",
+                      "surface-container-lowest": "#0a0e14"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-max": "1280px",
+                      "section-padding": "80px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-xl-mobile": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "display-xl": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg": ["Playfair Display"],
+                      "body-lg": ["Inter"],
+                      "caption": ["Inter"],
+                      "label-bold": ["Inter"]
+              },
+              "fontSize": {
+                      "display-xl-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "label-bold": ["14px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .marker-highlight {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        .marker-highlight::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: -2px;
+            right: -2px;
+            height: 40%;
+            background-color: theme('colors.primary-container');
+            opacity: 0.3;
+            z-index: -1;
+            transform: rotate(-1deg);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-20">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
+<!-- Brand -->
+<div class="flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">edit</span>
+<span class="font-display-xl text-headline-md font-bold text-on-surface tracking-tight">SatışMetni</span>
+</div>
+<!-- Navigation Links (Web) -->
+<ul class="hidden md:flex space-x-8 items-center">
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Özellikler</a></li>
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Çözümler</a></li>
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Fiyatlandırma</a></li>
+<!-- ACTIVE TAB: Hakkımızda -->
+<li><a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="#">Hakkımızda</a></li>
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Blog</a></li>
+</ul>
+<!-- Actions -->
+<div class="flex items-center space-x-4">
+<button class="hidden md:block font-label-bold text-label-bold text-on-surface-variant hover:text-on-surface transition-colors hover:scale-105">Giriş Yap</button>
+<button class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-6 py-2 rounded-lg hover:brightness-110 hover:scale-105 active:scale-95 transition-all">Kayıt Ol</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding pt-32">
+<div class="text-center max-w-4xl mx-auto mb-16">
+<h1 class="font-display-xl text-display-xl text-on-surface mb-6 leading-tight">
+<span class="marker-highlight">Kelimelerin Gücüyle</span><br/>E-ticareti Dönüştürüyoruz.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Hikayemiz, sıradan ürün açıklamalarının ardındaki potansiyeli ortaya çıkarma tutkusuyla başladı. SatışMetni, veri bilimi ve yaratıcı yazarlığı tek bir çalışma masasında birleştiriyor.
+                </p>
+</div>
+<!-- Stat Bar (Reused from Hero requirement) -->
+<div class="flex flex-col md:flex-row justify-center items-center gap-12 py-12 border-y border-outline-variant/30 mb-24 bg-surface-container/50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">5,000+</div>
+<div class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Trusted Sellers</div>
+</div>
+</div>
+<div class="hidden md:block h-12 w-px bg-outline-variant/50"></div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary text-4xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">+34%</div>
+<div class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Dönüşüm Artışı (CTR)</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Story Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding pb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1 space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Editörün Masasına Hoş Geldiniz.</h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-6">
+<p>
+                            E-ticaret dünyasında rekabet günden güne artarken, ürünlerinizi öne çıkaran şey sadece fiyat veya kalite değil, onları <span class="text-primary font-medium">nasıl anlattığınızdır</span>. SatışMetni'ni kurarken amacımız, her satıcının profesyonel bir metin yazarına sahip olmasını sağlamaktı.
+                        </p>
+<p>
+                            Sistemimizi bir "Editör Masası" konseptiyle tasarladık. Ham, işlenmemiş veriyi alır, üzerine dijital mürekkebimizi döker ve onu <span class="bg-primary-container/20 text-on-surface px-1 rounded">yüksek dönüşüm getiren</span>, ikna edici bir başyapıta dönüştürürüz.
+                        </p>
+</div>
+</div>
+<div class="order-1 md:order-2 relative">
+<div class="absolute -inset-4 bg-primary-container/5 rounded-xl blur-xl -z-10"></div>
+<img class="w-full h-[500px] object-cover rounded-xl border border-outline-variant/30 shadow-2xl" data-alt="A high-end editorial style photograph of a sleek, modern workspace featuring a dark mahogany desk. On the desk sits a vintage typewriter next to a sleek modern laptop displaying lines of glowing code. The lighting is moody and cinematic, emphasizing a sophisticated, transformative aesthetic with subtle warm coral light accents against deep shadow. The mood conveys professional precision and creativity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbKo7FQfs3_VcTGVTCKuxA0FDAdrfrCojeyXdPX6DlFcqB0GxisjJP98j42kgPSqWK2HI0N8Rx1aOMcxS7LwjDDbeMIN5-coo5tQX_JetDxNRaY3tl7Qlou_WQslpFAMXWIYWi3i6sCSmwIZ3kaSXQn-rG0S31VJIjj1HAc-WRvaL4Dj3Vp6IF6jptliRl29-txQxzdGJm-UuWxjDmtjdXzKm7HuirCumNS2_9JCGG0GV3MD8jNj8tx6BwOt0whGL1mICIQSLhsIo"/>
+</div>
+</div>
+</section>
+<!-- Mission & Team Grid -->
+<section class="bg-surface-container-low border-t border-outline-variant/30 py-section-padding">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Arkada Kimler Var?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Yapay zeka ve dilbilimi uzmanlarından oluşan çekirdek ekibimiz.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:border-primary/50 transition-colors group">
+<div class="h-64 bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional editorial portrait of a creative director in a dimly lit, sophisticated studio. They are looking confidently away from the camera. The lighting features dramatic shadows and a soft warm rim light. The aesthetic is modern, authoritative, and perfectly matches a high-end SaaS corporate identity in dark mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdIiGtyDUoI48SIP8ydjGOOtFzPtzeXh9R9JKJFKuCPS01BeanScOW8AJc4akWIeFR4jHinWz3WtQdR__4Lp4d2ECuuii9GJhCtL4KRTJm2NKuzM83nS7JVwNUZLiD63hMDL1K7YH-ZdPbw5pKIMxpHTWV8DNbNtctkSNRHfmsb3O1ScAXOYCx3kc7mp9TwEDaxEMUXa58RgQ07qqsvFAKxiSwnyxfeZYwI4EQcNMUnZr2cZCpqQoHmH8H2kB9UOKl9TuuRdXzpsk"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface text-2xl mb-1">Elif Yılmaz</h3>
+<p class="font-label-bold text-label-bold text-primary mb-4 uppercase tracking-wider">Kurucu &amp; CEO</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Eski e-ticaret yöneticisi. Kelimelerin satış üzerindeki doğrudan etkisini gördükten sonra bu vizyonu hayata geçirdi.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:border-primary/50 transition-colors group">
+<div class="h-64 bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale group-hover:grayscale-0" data-alt="A professional editorial portrait of a lead AI engineer in a dimly lit, sophisticated studio workspace. They are looking confidently at the camera. The lighting features dramatic shadows and a soft cool blue rim light contrasting with a warm background. The aesthetic is modern, authoritative, and matches a high-end SaaS corporate identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnbn-qLAWSWPfnj4WLN0eb8fGUQRoL5xCJKQyRpeWinCzkbhhykX03PUR6WmLKTzLKgf13vVIvElFH-MrZqzxa3r_vXxaY9xM53MUEEgmszVFF_-_So-zDYj8o0kr6Axm5uf5fpVN_4QT91cO8J7g0mva_EmIQOcAFvPtKkPveCksZhCp4mLS9d50DgedJc5l3wPrdeg6kmfZmIKTjNL0-IYl3-r1-EM3p35geRbnPgTCCaEqQ6LLG9UEiuVSI0N4xPhe7OFJ1bf8"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface text-2xl mb-1">Can Demir</h3>
+<p class="font-label-bold text-label-bold text-primary mb-4 uppercase tracking-wider">Baş Yapay Zeka Mühendisi</p>
+<p class="font-body-md text-body-md text-on-surface-variant">NLP (Doğal Dil İşleme) alanında doktoralı. SatışMetni'nin arka plandaki o kusursuz beyninin mimarı.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden hover:border-primary/50 transition-colors group">
+<div class="h-64 bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional editorial portrait of a creative lead copywriter in a dimly lit, sophisticated studio. They are holding a sleek pen. The lighting features dramatic shadows and a soft warm rim light. The aesthetic is modern, authoritative, and perfectly matches a high-end SaaS corporate identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxRNQP-1Op2TeyrOO5DysMFHbS5Nh6VfPPynKtwsc3jmAA65yqt9viAJleKJ6wUzMRk66A9LqWaGNvhTEgGwTr1GpldyL-lmP4F-jK7aqCa7qllzMC4ikFwWkPcc4QFptbJAI1jjfzx6nyf7Oqb6Tkz_xJZxPHCyKIkX03_bhxt1kvJU-uW0FA4HXr1lkRjI6BMlhcrBGxu96WB28knpJJQr2wiMlGMvSa0U_TQMnflfBIujN0-19A8IG6GiDdIPd77-tl3MlCvHo"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-on-surface text-2xl mb-1">Zeynep Kaya</h3>
+<p class="font-label-bold text-label-bold text-primary mb-4 uppercase tracking-wider">İçerik Stratejisi Lideri</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Ödüllü reklam yazarı. Yapay zekanın ürettiği içeriklerin "insan ruhunu" taşıdığından emin olan kalite kontrol noktamız.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-background dark:bg-background border-t bg-surface-container-low border-outline-variant/20 py-section-padding mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1 space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">edit</span>
+<span class="font-display-xl text-headline-md font-bold text-on-surface">SatışMetni</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-4">
+                    © 2024 SatışMetni AI. Tüm hakları saklıdır.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="col-span-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4">Navigasyon</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Ürünler</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Çözümler</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Kaynaklar</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Kurumsal</a></li>
+</ul>
+</div>
+<!-- Empty/Spacer Column to match 4 col grid expectation visually if needed, or adjust JSON links mapping -->
+<div class="col-span-1">
+<!-- Placeholder for future links -->
+</div>
+<!-- Newsletter / Action Column -->
+<div class="col-span-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4">Güncel Kalın</h4>
+<div class="flex flex-col space-y-2">
+<input class="bg-surface-variant border border-outline-variant/30 text-on-surface rounded-lg px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="E-posta adresiniz" type="email"/>
+<button class="bg-primary-container text-on-primary-container font-label-bold text-label-bold py-2 rounded-lg hover:brightness-110 active:scale-95 transition-all">Abone Ol</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

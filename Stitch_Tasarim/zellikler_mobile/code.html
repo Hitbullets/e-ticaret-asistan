@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Özellikler - SatışMetni</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-primary-fixed": "#410001",
+                            "on-secondary-fixed-variant": "#554243",
+                            "tertiary-fixed-dim": "#54dcbc",
+                            "error-container": "#93000a",
+                            "primary": "#ffb4a9",
+                            "tertiary-container": "#00af91",
+                            "tertiary": "#54dcbc",
+                            "surface-bright": "#353940",
+                            "secondary-fixed-dim": "#dbc0c0",
+                            "surface-container-high": "#262a31",
+                            "tertiary-fixed": "#74f9d7",
+                            "background": "#10141a",
+                            "inverse-on-surface": "#2d3137",
+                            "on-primary": "#690002",
+                            "inverse-primary": "#ae3025",
+                            "secondary": "#dbc0c0",
+                            "surface-container": "#1c2026",
+                            "on-primary-fixed-variant": "#8c1711",
+                            "primary-fixed": "#ffdad5",
+                            "surface-tint": "#ffb4a9",
+                            "error": "#ffb4ab",
+                            "inverse-surface": "#dfe2eb",
+                            "on-tertiary-fixed": "#002019",
+                            "on-secondary": "#3d2c2d",
+                            "on-secondary-fixed": "#261818",
+                            "primary-fixed-dim": "#ffb4a9",
+                            "on-primary-container": "#6d0002",
+                            "secondary-container": "#554243",
+                            "on-surface-variant": "#e0bfba",
+                            "surface-dim": "#10141a",
+                            "on-tertiary": "#00382d",
+                            "on-error": "#690005",
+                            "on-secondary-container": "#c9afaf",
+                            "on-error-container": "#ffdad6",
+                            "primary-container": "#ff6b5a",
+                            "surface-container-low": "#181c22",
+                            "on-surface": "#dfe2eb",
+                            "secondary-fixed": "#f8dcdc",
+                            "on-tertiary-fixed-variant": "#005142",
+                            "outline": "#a88a86",
+                            "on-background": "#dfe2eb",
+                            "surface-variant": "#31353c",
+                            "surface-container-highest": "#31353c",
+                            "surface": "#10141a",
+                            "outline-variant": "#59413e",
+                            "on-tertiary-container": "#003a2f",
+                            "surface-container-lowest": "#0a0e14"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "unit": "8px",
+                            "container-max": "1280px",
+                            "section-padding": "80px",
+                            "margin-mobile": "16px",
+                            "gutter": "24px"
+                    },
+                    "fontFamily": {
+                            "display-xl-mobile": ["Playfair Display"],
+                            "body-md": ["Inter"],
+                            "display-xl": ["Playfair Display"],
+                            "headline-md": ["Playfair Display"],
+                            "headline-lg": ["Playfair Display"],
+                            "body-lg": ["Inter"],
+                            "caption": ["Inter"],
+                            "label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                            "display-xl-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                            "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                            "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                            "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                            "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                            "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                            "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Utilities */
+        .marker-highlight {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+        .marker-highlight::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: -2px;
+            right: -2px;
+            height: 40%;
+            background-color: #ffb4a9; /* primary */
+            opacity: 0.3;
+            z-index: -1;
+            transform: rotate(-1deg);
+            border-radius: 2px;
+        }
+        .starburst-badge {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden min-h-screen flex flex-col pt-20">
+<!-- TopNavBar Component -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-outline-variant/30 flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">edit</span>
+<a class="font-display-xl text-headline-md font-bold text-on-surface" href="#">SatışMetni</a>
+</div>
+<!-- Mobile Hamburger Menu Button -->
+<button class="md:hidden text-on-surface p-2 focus:outline-none focus:ring-2 focus:ring-primary-container rounded" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Desktop Navigation (Hidden on Mobile) -->
+<div class="hidden md:flex items-center gap-6">
+<ul class="flex gap-6 items-center">
+<li><a class="text-primary font-label-bold border-b-2 border-primary pb-1 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-primary" href="#">Özellikler</a></li>
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Çözümler</a></li>
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Fiyatlandırma</a></li>
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Hakkımızda</a></li>
+<li><a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Blog</a></li>
+</ul>
+<div class="flex items-center gap-4">
+<a class="text-on-surface font-label-bold text-label-bold hover:text-primary transition-colors" href="#">Giriş Yap</a>
+<a class="bg-primary-container text-white px-5 py-2 rounded font-label-bold text-label-bold hover:scale-105 hover:brightness-110 transition-transform duration-200" href="#">Kayıt Ol</a>
+</div>
+</div>
+<!-- Mobile Menu Overlay (Hidden by default) -->
+<div class="absolute top-20 left-0 w-full bg-surface border-b border-outline-variant/30 hidden flex-col shadow-lg" id="mobile-menu">
+<ul class="flex flex-col p-4">
+<li><a class="block py-3 text-primary font-label-bold text-label-bold border-l-4 border-primary pl-3" href="#">Özellikler</a></li>
+<li><a class="block py-3 text-on-surface-variant font-label-bold text-label-bold pl-4 hover:text-on-surface" href="#">Çözümler</a></li>
+<li><a class="block py-3 text-on-surface-variant font-label-bold text-label-bold pl-4 hover:text-on-surface" href="#">Fiyatlandırma</a></li>
+<li><a class="block py-3 text-on-surface-variant font-label-bold text-label-bold pl-4 hover:text-on-surface" href="#">Hakkımızda</a></li>
+<li><a class="block py-3 text-on-surface-variant font-label-bold text-label-bold pl-4 hover:text-on-surface" href="#">Blog</a></li>
+</ul>
+<div class="flex flex-col p-4 gap-3 border-t border-outline-variant/30 bg-surface-container-low">
+<a class="w-full text-center py-3 text-on-surface font-label-bold text-label-bold border border-outline-variant rounded" href="#">Giriş Yap</a>
+<a class="w-full text-center py-3 bg-primary-container text-white rounded font-label-bold text-label-bold" href="#">Kayıt Ol</a>
+</div>
+</div>
+</nav>
+<!-- Main Content (Mobile Optimized) -->
+<main class="flex-grow flex flex-col items-center w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-12">
+<!-- Header Section -->
+<section class="text-center w-full mb-12">
+<h1 class="font-display-xl-mobile text-display-xl-mobile md:font-display-xl md:text-display-xl text-on-surface mb-6">
+                Ürünlerinizi Parlatın, <br class="hidden md:block"/>
+<span class="text-primary-container relative inline-block">
+                    Satışa Dönüştürün.
+                    <svg class="absolute -bottom-2 right-0 w-12 h-12 text-primary-container transform translate-x-4 rotate-12" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                E-ticaret ürünleriniz için saniyeler içinde SEO uyumlu, ikna edici ve yüksek dönüşüm oranlı içerikler üretin. Yapay zeka ile ham veriyi satış makinesine çevirin.
+            </p>
+</section>
+<!-- Feature Cards Stack -->
+<section class="w-full max-w-3xl flex flex-col gap-12 pb-24">
+<!-- Feature 1: The Transformation Card (Product Description) -->
+<div class="flex flex-col w-full rounded-xl overflow-visible shadow-2xl relative">
+<!-- Decorative Arrow -->
+<div class="absolute -top-10 right-4 md:-right-10 flex flex-col items-center rotate-12 text-primary-container font-label-bold text-label-bold opacity-80 z-10">
+                    SATIŞ ODAKLI
+                    <svg class="w-8 h-8 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Input Pane (Dark) -->
+<div class="bg-surface-container-high p-6 md:p-8 rounded-t-xl border border-outline-variant/50 border-b-0 flex flex-col gap-4">
+<div class="flex items-center gap-2 border-b border-outline-variant/30 pb-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">raw_on</span>
+<h3 class="font-label-bold text-label-bold text-on-surface">Girdi (Ham Veri)</h3>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<p class="mb-2"><span class="text-on-surface font-medium">Ürün:</span> Pro DSLR Kamera Z-500</p>
+<p><span class="text-on-surface font-medium">Özellikler:</span> 4K Video, 45MP, Tam Kare Sensör, Wi-Fi, Suya dayanıklı gövde.</p>
+</div>
+<div class="mt-4 flex justify-start">
+<button class="bg-surface-variant text-on-surface-variant font-label-bold text-label-bold py-2 px-6 rounded-lg opacity-70 cursor-not-allowed flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">magic_button</span>
+                            Oluşturuluyor...
+                        </button>
+</div>
+</div>
+<!-- Output Pane (Light / White - Overriding Dark Mode for Editorial Effect) -->
+<div class="bg-white p-6 md:p-8 rounded-b-xl border border-outline-variant/50 flex flex-col gap-6 relative" style="color: #1a1a1a;">
+<div class="flex items-center gap-2 border-b border-gray-200 pb-3">
+<span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-label-bold text-label-bold text-gray-900">Çıktı (Satış Metni AI)</h3>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-gray-500 mb-2">Başlık Önerisi:</h4>
+<p class="font-headline-md text-headline-md text-gray-900 leading-tight">
+<span class="marker-highlight">Satışları Katlayan</span> Pro DSLR Kamera Z-500: Sinematik 4K &amp; Kusursuz 45MP.
+                        </p>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-gray-500 mb-2">Ürün Açıklaması:</h4>
+<p class="font-body-md text-body-md text-gray-800 leading-relaxed">
+<span class="marker-highlight">Sınır Tanımayan</span> profesyoneller için mükemmel çekim deneyimi. Her detayı yakalayan tam kare sensör ile hikayenizi yaratın. 
+                            <strong>Hemen Satın Alın</strong> ve yaratıcılığınızı keşfedin.
+                        </p>
+</div>
+<!-- Badge breaking the container bounds -->
+<div class="absolute -bottom-6 -right-2 md:-right-6 bg-primary-container text-white w-24 h-24 flex flex-col items-center justify-center starburst-badge shadow-lg transform rotate-12 z-10">
+<span class="font-display-xl-mobile text-display-xl-mobile leading-none">+34%</span>
+<span class="font-caption text-caption font-bold leading-tight text-center px-2">Dönüşüm<br/>Artışı</span>
+</div>
+</div>
+</div>
+<!-- Feature 2: SEO Tags (Simplified variation) -->
+<div class="flex flex-col w-full rounded-xl overflow-hidden shadow-2xl border border-outline-variant/30 mt-8">
+<!-- Input Pane (Dark) -->
+<div class="bg-surface-container-high p-6 flex flex-col gap-3">
+<h3 class="font-label-bold text-label-bold text-on-surface opacity-70">Hedef Kitle &amp; Anahtar Kelimeler</h3>
+<div class="bg-surface p-3 rounded border border-outline-variant/20 font-body-md text-body-md text-on-surface-variant font-mono text-sm">
+                        {"hedef": "profesyonel fotoğrafçılar", "anahtar_kelimeler": ["aynasız kamera", "4k video", "vlog"]}
+                    </div>
+</div>
+<!-- Output Pane (Light) -->
+<div class="bg-white p-6 flex flex-col gap-4" style="color: #1a1a1a;">
+<h3 class="font-label-bold text-label-bold text-gray-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">troubleshoot</span>
+                        SEO Optimize Edilmiş Etiketler
+                    </h3>
+<div class="flex flex-wrap gap-2">
+<span class="bg-gray-100 border border-gray-200 text-gray-800 px-3 py-1 rounded-full font-caption text-caption shadow-sm">#AynasızKamera4K</span>
+<span class="bg-primary-container/10 border border-primary-container/30 text-primary-fixed-dim px-3 py-1 rounded-full font-caption text-caption font-bold shadow-sm">#ProfesyonelVlogKamerası</span>
+<span class="bg-gray-100 border border-gray-200 text-gray-800 px-3 py-1 rounded-full font-caption text-caption shadow-sm">#EnIyiAynasizKamera2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Action Area -->
+<section class="w-full text-center py-12 border-t border-outline-variant/20">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">İçerik üretimini otomatikleştirmeye hazır mısınız?</h2>
+<button class="bg-primary-container text-white px-8 py-4 rounded-lg font-label-bold text-label-bold text-lg hover:scale-105 hover:brightness-110 active:scale-95 transition-all shadow-lg flex items-center gap-2 mx-auto">
+                Hemen Başlayın
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<p class="font-caption text-caption text-on-surface-variant mt-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">group</span>
+                Trusted by <strong>5,000+</strong> Sellers
+            </p>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-background dark:bg-background border-t bg-surface-container-low w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto py-section-padding px-margin-mobile md:px-gutter">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<a class="font-display-xl text-headline-md font-bold text-on-surface flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">edit</span>
+                    SatışMetni
+                </a>
+<p class="font-caption text-caption text-on-surface-variant mt-2">
+                    © 2024 SatışMetni AI. Tüm hakları saklıdır.
+                </p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-2">Ürünler</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Ürünler</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Şablonlar</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-2">Çözümler</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Çözümler</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">E-Ticaret Entegrasyonu</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-2">Şirket</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Kaynaklar</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Kurumsal</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Menu Toggle Script -->
+<script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        });
+    </script>
+</body></html>

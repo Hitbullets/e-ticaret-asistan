@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SatışMetni - Fiyatlandırma</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#410001",
+                        "on-secondary-fixed-variant": "#554243",
+                        "tertiary-fixed-dim": "#54dcbc",
+                        "error-container": "#93000a",
+                        "primary": "#ffb4a9",
+                        "tertiary-container": "#00af91",
+                        "tertiary": "#54dcbc",
+                        "surface-bright": "#353940",
+                        "secondary-fixed-dim": "#dbc0c0",
+                        "surface-container-high": "#262a31",
+                        "tertiary-fixed": "#74f9d7",
+                        "background": "#10141a",
+                        "inverse-on-surface": "#2d3137",
+                        "on-primary": "#690002",
+                        "inverse-primary": "#ae3025",
+                        "secondary": "#dbc0c0",
+                        "surface-container": "#1c2026",
+                        "on-primary-fixed-variant": "#8c1711",
+                        "primary-fixed": "#ffdad5",
+                        "surface-tint": "#ffb4a9",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#dfe2eb",
+                        "on-tertiary-fixed": "#002019",
+                        "on-secondary": "#3d2c2d",
+                        "on-secondary-fixed": "#261818",
+                        "primary-fixed-dim": "#ffb4a9",
+                        "on-primary-container": "#6d0002",
+                        "secondary-container": "#554243",
+                        "on-surface-variant": "#e0bfba",
+                        "surface-dim": "#10141a",
+                        "on-tertiary": "#00382d",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#c9afaf",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#ff6b5a",
+                        "surface-container-low": "#181c22",
+                        "on-surface": "#dfe2eb",
+                        "secondary-fixed": "#f8dcdc",
+                        "on-tertiary-fixed-variant": "#005142",
+                        "outline": "#a88a86",
+                        "on-background": "#dfe2eb",
+                        "surface-variant": "#31353c",
+                        "surface-container-highest": "#31353c",
+                        "surface": "#10141a",
+                        "outline-variant": "#59413e",
+                        "on-tertiary-container": "#003a2f",
+                        "surface-container-lowest": "#0a0e14"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "section-padding": "80px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar (Mobile Optimized from JSON) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
+<!-- Brand Logo -->
+<div class="font-display-xl text-headline-md font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">ink_pen</span>
+                SatışMetni
+            </div>
+<!-- Mobile Hamburger Menu (Visually replacing full links for strictly mobile view, though keeping links hidden for standard responsive behavior) -->
+<button aria-label="Menu" class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Desktop/Tablet Nav Links (Hidden on small mobile as requested by mobile-first focus, but present per JSON) -->
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Özellikler</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Çözümler</a>
+<!-- Active Item -->
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Fiyatlandırma</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Hakkımızda</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300" href="#">Blog</a>
+</nav>
+<!-- Actions -->
+<div class="hidden md:flex items-center gap-4">
+<button class="text-on-surface font-label-bold text-label-bold hover:text-primary transition-colors">Giriş Yap</button>
+<button class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-6 py-2 rounded-full hover:scale-105 transition-transform duration-200">Kayııt Ol</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-28 pb-section-padding px-margin-mobile flex flex-col gap-12 max-w-[600px] mx-auto">
+<!-- Hero Section -->
+<section class="text-center flex flex-col gap-4">
+<h1 class="font-display-xl-mobile text-display-xl-mobile text-on-surface">
+                Sizin İçin En İyi <span class="relative inline-block text-primary-container">Planı<svg class="absolute -bottom-2 left-0 w-full h-3 text-primary-container opacity-70" preserveaspectratio="none" viewbox="0 0 100 10"><path d="M0 5 Q 50 10 100 0" fill="none" stroke="currentColor" stroke-width="3"></path></svg></span> Seçin
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Metinlerinizi premium kaliteye taşıyın. İhtiyacınıza uygun esnek fiyatlandırma seçenekleri.
+            </p>
+<!-- Toggle -->
+<div class="flex items-center justify-center gap-3 mt-6">
+<span class="font-label-bold text-label-bold text-on-surface-variant">Aylık</span>
+<div class="w-14 h-8 bg-surface-container-high rounded-full p-1 cursor-pointer flex items-center relative border border-outline-variant/30">
+<div class="w-6 h-6 bg-primary-container rounded-full shadow-sm absolute right-1"></div>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface flex items-center gap-2">
+                    Yıllık
+                    <span class="bg-tertiary-container/20 text-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold">2 Ay Bedava</span>
+</span>
+</div>
+</section>
+<!-- Pricing Cards Stack -->
+<section class="flex flex-col gap-6">
+<!-- Basic Tier -->
+<article class="bg-surface-container rounded-xl p-6 border border-outline-variant/30 flex flex-col gap-6 relative overflow-hidden">
+<div class="flex justify-between items-center border-b border-outline-variant/30 pb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Başlangıç</h2>
+<p class="font-caption text-caption text-on-surface-variant">Temel ihtiyaçlar için.</p>
+</div>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-bold text-on-surface">₺199</span>
+<span class="text-on-surface-variant text-sm">/ay</span>
+</div>
+<button class="w-full py-3 rounded-lg border border-primary-container text-primary-container font-label-bold hover:bg-primary-container/10 transition-colors">
+                    Hemen Başlayın
+                </button>
+<ul class="flex flex-col gap-3 mt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Aylık 10.000 kelime</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant">50+ Şablon</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Standart Destek</span>
+</li>
+</ul>
+</article>
+<!-- Pro Tier (Recommended) -->
+<article class="bg-surface-bright rounded-xl p-6 border-2 border-primary-container flex flex-col gap-6 relative shadow-[0_10px_30px_rgba(255,107,90,0.1)] transform scale-[1.02]">
+<!-- Badge -->
+<div class="absolute -top-3 right-6 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-caption text-[10px] font-bold tracking-wider uppercase">
+                    En Çok Tercih Edilen
+                </div>
+<div class="flex justify-between items-center border-b border-outline-variant/30 pb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Profesyonel</h2>
+<p class="font-caption text-caption text-on-surface-variant">Ajanslar ve yoğun kullananlar.</p>
+</div>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-5xl font-bold text-primary-container">₺499</span>
+<span class="text-on-surface-variant text-sm">/ay</span>
+</div>
+<button class="w-full py-4 rounded-lg bg-primary-container text-on-primary-container font-label-bold text-lg hover:brightness-110 active:scale-95 transition-all shadow-md">
+                    Ücretsiz Dene
+                </button>
+<ul class="flex flex-col gap-3 mt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-sm mt-0.5 fill-icon">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface"><strong>Sınırsız</strong> kelime üretimi</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-sm mt-0.5 fill-icon">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Tüm premium şablonlar</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-sm mt-0.5 fill-icon">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">SEO Analiz Aracı</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-sm mt-0.5 fill-icon">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Öncelikli 7/24 Destek</span>
+</li>
+</ul>
+</article>
+<!-- Enterprise Tier -->
+<article class="bg-surface-container rounded-xl p-6 border border-outline-variant/30 flex flex-col gap-6 relative">
+<div class="flex justify-between items-center border-b border-outline-variant/30 pb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Kurumsal</h2>
+<p class="font-caption text-caption text-on-surface-variant">Büyük ekipler için özel çözümler.</p>
+</div>
+</div>
+<div class="flex items-baseline gap-1 py-2">
+<span class="text-3xl font-bold text-on-surface">Özel Fiyatlandırma</span>
+</div>
+<button class="w-full py-3 rounded-lg bg-surface-variant text-on-surface font-label-bold hover:bg-surface-bright transition-colors border border-outline-variant/50">
+                    Satış Ekibimizle Görüşün
+                </button>
+<ul class="flex flex-col gap-3 mt-4 opacity-80">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-0.5">add</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Özel AI model eğitimi</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-0.5">add</span>
+<span class="font-body-md text-body-md text-on-surface-variant">API Erişimi</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-0.5">add</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Özel Hesap Yöneticisi</span>
+</li>
+</ul>
+</article>
+</section>
+</main>
+<!-- Footer (From JSON) -->
+<footer class="bg-surface-container-low full-width mt-12 border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto py-section-padding px-margin-mobile md:px-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-display-xl text-headline-md font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">ink_pen</span>
+                    SatışMetni
+                </div>
+<p class="font-caption text-caption text-on-surface-variant">
+                    © 2024 SatışMetni AI. Tüm hakları saklıdır.
+                </p>
+</div>
+<!-- JSON Links combined into a simple list for mobile footer -->
+<div class="flex flex-col gap-3 mt-6 md:mt-0">
+<h3 class="font-label-bold text-on-surface mb-2">Hızlı Bağlantılar</h3>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Ürünler</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Çözümler</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Kaynaklar</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Kurumsal</a>
+</div>
+<!-- Decorative minimal newsletter input to fulfill editorial/SaaS look -->
+<div class="flex flex-col gap-3 mt-6 md:mt-0 md:col-span-2">
+<h3 class="font-label-bold text-on-surface mb-2">Bültene Katılın</h3>
+<div class="flex gap-2">
+<input class="bg-surface border border-outline-variant/30 rounded-lg px-4 py-2 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none w-full font-body-md" placeholder="E-posta adresiniz" type="email"/>
+<button class="bg-surface-variant text-on-surface px-4 py-2 rounded-lg hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
